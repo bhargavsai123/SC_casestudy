@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-10-20T14:04:56+00:00",
+  "python": "3.14.8",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "optimizer_model": "qwen2.5:7b",
+  "target_model": "qwen2.5:3b",
+  "ollama_base_url": "http://localhost:11434",
+  "random_seed": 42,
+  "config": {
+    "apo_error_source": "train",
+    "strategy_allocation": "quota",
+    "crossover_cleanup": true,
+    "lenient_parsing": true,
+    "max_generation_attempts": 3,
+    "main": {
+      "population": 20,
+      "generations": 8,
+      "eval_mode": "all"
+    },
+    "ablation": {
+      "population": 10,
+      "generations": 6,
+      "eval_mode": "all",
+      "repeats": 3,
+      "single_strategy_baselines": false
+    }
+  },
+  "split": {
+    "dataset": "iamollas/ethos (multilabel, refs/convert/parquet)",
+    "n_available": 433,
+    "n_train": 50,
+    "n_val": 50,
+    "n_test": 200,
+    "shuffle_seed": 42,
+    "sha256_train": "40a587ff968692f5a9cc5b718118c175cf1caadd89e1f29f151ba967178f85a8",
+    "sha256_val": "ad0220a0f7fd348761348ff76b12b84deabe1004e875eff778b7674f101f6e84",
+    "sha256_test": "975ea3194ff4ab77e86ac864b1c5491f50060bed4f84e521ee56150bd214f5f6"
+  },
+  "main_run_meta": {
+    "seed": 42,
+    "population_size": 20,
+    "generations": 8,
+    "eval_mode": "all",
+    "strategy_weights": {
+      "random_mutation": 0.4,
+      "apo": 0.2,
+      "opro": 0.2,
+      "fewshot": 0.1,
+      "crossover": 0.1
+    },
+    "weight_controller": null,
+    "apo_error_source": "train",
+    "crossover_cleanup": true,
+    "strategy_allocation": "quota",
+    "n_logged_candidates": 116,
+    "requests_optimizer": 81,
+    "requests_target": 6168,
+    "elapsed_s": 7725.6,
+    "requests_total": 6249
+  },
+  "client_stats": {
+    "optimizer": {
+      "calls": 312,
+      "cache_hits": 464,
+      "retries": 0,
+      "empty_outputs": 0,
+      "truncated": 13,
+      "reasoning_fallbacks": 0,
+      "prompt_tokens": 120818,
+      "completion_tokens": 51925
+    },
+    "target": {
+      "calls": 24979,
+      "cache_hits": 14557,
+      "retries": 0,
+      "empty_outputs": 0,
+      "truncated": 500,
+      "reasoning_fallbacks": 0,
+      "prompt_tokens": 5783823,
+      "completion_tokens": 356330
+    }
+  },
+  "parse_method_counts": {
+    "json": 37153,
+    "keyword": 1721,
+    "json_substring": 637,
+    "empty": 25
+  },
+  "headline": {
+    "baseline_val": 0.1,
+    "best_val": 0.46,
+    "baseline_test": 0.09,
+    "best_test": 0.24,
+    "best_generation": 7,
+    "best_strategy": "apo"
+  }
+}

@@ -1,0 +1,505 @@
+generation,strategy,parent_ids,prompt,validation_score,n_examples,n_unique_examples,score_kind,macro_f1,parse_methods,n_parse_failures,slot_count,parent_score,weights_json,requests_this_gen,requests_total
+0,seed,,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].",0.1,50,50,full_val,0.42839735427277875,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",2890,2890
+1,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: How is it to have a kid acting like a sloth or like a pug dog? Isn’t it hard? In your place I’d put it in a dedicated institute for problematics and pay a visit each year at max
+Example labels: [""directed_vs_generalized"", ""disability""]
+
+Example message: Idiots as always. Religion is the most stupid thing you humans invented.
+Example labels: [""religion""]",0.06,50,50,full_val,0.4239126662810873,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,apo,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, focusing on the most relevant categories and ensuring accurate classification of hate speech elements, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.04,50,50,full_val,0.4036376656706435,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,crossover_rejected,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].",0.1,50,50,full_val,0.42839735427277875,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,opro,1,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nRespond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}",0.12,50,50,full_val,0.46087420040109667,"{""json"": 46, ""keyword"": 4}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: Why are we not allowed to kill christians?
+Example labels: [""violence"", ""religion""]
+
+Example message: I dare you to choke her next time. Every one of them
+Example labels: [""violence"", ""directed_vs_generalized"", ""gender""]",0.04,50,50,full_val,0.4156974566131543,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,random_mutation:constraint_addition,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with []. Do not include any additional text in your response.
+---",0.1,50,50,full_val,0.45791500810850655,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+1,random_mutation:task_decomposition,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+1. Consider the category ""violence"": Does the message contain any indication of violence? If yes, include ""violence"" in the final output.
+2. Consider the category ""directed_vs_generalized"": Is the message directed or generalized? If applicable, include ""directed_vs_generalized"" in the final output.
+3. Consider the category ""gender"": Does the message relate to gender? If applicable, include ""gender"" in the final output.
+4. Consider the category ""race"": Does the message relate to race? If applicable, include ""race"" in the final output.
+5. Consider the category ""national_origin"": Does the message relate to national origin? If applicable, include ""national_origin"" in the final output.
+6. Consider the category ""disability"": Does the message relate to disability? If applicable, include ""disability"" in the final output.
+7. Consider the category ""religion"": Does the message relate to religion? If applicable, include ""religion"" in the final output.
+8. Consider the category ""sexual_orientation"": Does the message relate to sexual orientation? If applicable, include ""sexual_orientation"" in the final output.
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.1,50,50,full_val,0.4940448640913037,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",100,2990
+2,apo,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, focusing on the most relevant categories and ensuring accurate classification of hate speech elements, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.04,50,50,full_val,0.4036376656706435,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,opro,4,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nRespond with ONLY a JSON array of the applicable category names from the list above, e.g., ['violence', 'religion']. If none apply, respond with []. Additionally, ensure the categories are relevant and not overly broad to improve accuracy.""
+}",0.12,50,50,full_val,0.4883390875942854,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,random_mutation:creative_backstory,1,"---
+You are a content moderation classifier. Imagine you are working for a social media platform and your task is to quickly categorize user messages that might violate our community guidelines based on the categories listed below. This is crucial for maintaining a safe and inclusive environment for all users.
+
+Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.08,50,50,full_val,0.4687687312687313,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,crossover,1;4,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].",0.06,50,50,full_val,0.4324000136500137,"{""json"": 48, ""keyword"": 2}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: lock women up at home . Female are just to stupid to understand anything .  Iam Agnostic .
+Example labels: [""gender""]
+
+Example message: That skin colour is the funniest one in combination with your eyes is perfect stupid
+Example labels: [""directed_vs_generalized"", ""race""]",0.0,50,50,full_val,0.4251521747431932,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,random_mutation:expert_persona_injection,1,"---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.14,50,50,full_val,0.4590537028617524,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: Let's go beat these queers!
+Example labels: [""violence"", ""sexual_orientation""]
+
+Example message: Men race is a subordinate of women
+Example labels: [""gender""]
+
+Example message: I won’t let your Allah fuck my life. Convert to Christian or make your self and kids a favour and return back to your homelands
+Example labels: [""religion""]",0.06,50,50,full_val,0.3579440121912788,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+2,crossover,4;1,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.14,50,50,full_val,0.4940303103536167,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",151,3141
+3,fewshot,12,"---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---
+
+Here are some labelled examples:
+Example message: By calling period, a natural procedure, as an excuse it degrades their gender. I suppose I agree with that though they are degraded anyways
+Example labels: [""gender""]
+
+Example message: an Asian Moe Howard piece of shit
+Example labels: [""directed_vs_generalized"", ""national_origin""]",0.04,50,50,full_val,0.39570952435231327,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,opro,12,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given the message below, classify it by selecting zero or more applicable categories from the list: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Respond ONLY with a JSON array of the applicable category names, e.g., ['violence', 'religion']. If none apply, respond with []. Message: {input}.""
+}",0.1,50,50,full_val,0.43885661977767243,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,random_mutation:instruction_expansion,12,"---
+---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+- violence: Messages that promote or directly threaten physical harm
+- directed_vs_generalized: Messages that are clearly directed at a specific individual or group vs. those that are more broadly stated
+- gender: Messages that contain derogatory or discriminatory content related to gender
+- race: Messages that contain derogatory or discriminatory content related to race or ethnicity
+- national_origin: Messages that contain derogatory or discriminatory content related to nationality or place of origin
+- disability: Messages that contain derogatory or discriminatory content related to physical or mental disabilities
+- religion: Messages that contain derogatory or discriminatory content related to religious beliefs or practices
+- sexual_orientation: Messages that contain derogatory or discriminatory content related to sexual orientation or gender identity
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.14,50,50,full_val,0.4935444460644942,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,apo,12,"---
+---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. Ensure your categorization is precise and comprehensive, especially for overlapping or ambiguous terms like ""Jew"" and ""white"", which should be categorized based on their primary context.
+
+---
+
+This revised template includes a note to ensure precise and comprehensive categorization, particularly for terms that can overlap, such as ""Jew"" and ""white.""",0.06,50,50,full_val,0.42938142195844375,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,crossover,14;12,"---
+You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.1,50,50,full_val,0.5045245277224681,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,fewshot,14,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]",0.2,50,50,full_val,0.5696942342922107,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,apo,14,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual Orientation, national_origin, race, disability, gender. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.06,50,50,full_val,0.4290528606883511,"{""json"": 49, ""keyword"": 1}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+3,crossover,12;14,"---
+You are an expert hate-speech researcher and a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. 
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Message: {input}
+---",0.14,50,50,full_val,0.4984238149136282,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,3647
+4,fewshot,20,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]
+
+Here are some labelled examples:
+Example message: Why are niggers superior athletically to all other races?
+Example labels: [""race""]
+
+Example message: Racist ass white ass people
+Example labels: [""race""]",0.18,50,50,full_val,0.562897114817587,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,crossover,12;20,"---
+You are an expert in hate-speech research and content moderation. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, national_origin. Example labels: [""race""]. Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly, my friend. Example labels: [""directed_vs_generalized"", ""national_origin""]. Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: [""gender""].
+
+Message: {input}
+---
+Output ONLY a JSON array of category names.
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.24,50,50,full_val,0.5743546552370082,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,apo,12,"---
+---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. Ensure your categorization is precise and comprehensive, especially for overlapping or ambiguous terms like ""Jew"" and ""white"", which should be categorized based on their primary context.
+
+---
+
+This revised template includes a note to ensure precise and comprehensive categorization, particularly for terms that can overlap, such as ""Jew"" and ""white.""",0.06,50,50,full_val,0.42938142195844375,"{""json"": 50}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,random_mutation:expert_persona_injection,12,"---
+---
+You are an expert hate-speech researcher. You are an expert hate-speech researcher. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.18,50,50,full_val,0.4385831033058116,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,random_mutation:creative_backstory,12,"---
+---
+You are an expert hate-speech researcher. You are a content moderation classifier. In the context of reviewing a social media post to ensure platform safety and compliance with community guidelines, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.16,50,50,full_val,0.47176739679448654,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,opro,12,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'gender']. If none apply, respond with [].""
+}",0.1,50,50,full_val,0.4857835776953424,"{""json"": 41, ""keyword"": 9}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+4,fewshot,20,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]
+
+Here are some labelled examples:
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please?
+Example labels: [""disability""]
+
+Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the english language anymore.
+Example labels: [""race""]
+
+Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people.
+Example labels: [""directed_vs_generalized"", ""race""]",0.28,50,50,full_val,0.5765997074820605,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",354,4001
+5,crossover,24;28,"---
+You are an expert in hate-speech research and content moderation. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, national_origin. Example labels should be provided as a JSON array of category names. 
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don't like you either so fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: [""gender""]
+
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please? Example labels: [""disability""]
+
+Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the English language anymore. Example labels: [""race""]
+
+Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people. Example labels: [""directed_vs_generalized"", ""race""]
+
+Message: {input}
+---
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.1,50,50,full_val,0.4997674550861657,"{""json_substring"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,fewshot,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]
+
+Here are some labelled examples:
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please?
+Example labels: [""disability""]
+
+Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the english language anymore.
+Example labels: [""race""]
+
+Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people.
+Example labels: [""directed_vs_generalized"", ""race""]
+
+Here are some labelled examples:
+Example message: Ima fucking stab u up bruv. Fucking white prick bruv.. fucking racist.  Gammon
+Example labels: [""violence"", ""directed_vs_generalized"", ""race""]
+
+Example message: Beware LBGQ community Shari Law is coming you guys will have to go back in closet to save your heads.
+Example labels: [""sexual_orientation""]",0.16,50,50,full_val,0.6035752442002442,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,fewshot,24,"---
+You are an expert in hate-speech research and content moderation. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, national_origin. Example labels: [""race""]. Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly, my friend. Example labels: [""directed_vs_generalized"", ""national_origin""]. Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: [""gender""].
+
+Message: {input}
+---
+Output ONLY a JSON array of category names.
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please?
+Example labels: [""disability""]",0.18,50,50,full_val,0.5336145232358416,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,apo,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation, gender, race, national_origin, disability. Message: {input}. Ensure your response is a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Pay special attention to the context and nuances of the message to avoid overpredicting categories.""
+}",0.14,50,50,full_val,0.5058713889596242,"{""json"": 49, ""json_substring"": 1}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,random_mutation:task_decomposition,24,"---
+---
+You are an expert in hate-speech research and content moderation. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, national_origin, race, disability, religion, sexual_orientation. Example labels: [""race""]. Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly, my friend. 
+- Check if the message contains any indication of violence.
+- Check if the message is directed vs generalized.
+- Check if the message includes any gender-related content.
+- Check if the message includes any national_origin-related content.
+- Check if the message includes any race-related content.
+- Check if the message includes any disability-related content.
+- Check if the message includes any religion-related content.
+- Check if the message includes any sexual_orientation-related content.
+- Based on your analysis, output a JSON array of applicable category names.
+
+Message: {input}
+---
+Output ONLY a JSON array of category names.
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+---",0.12,50,50,full_val,0.5013595901980658,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,opro,24,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['race', 'gender']. If none apply, respond with [].""
+}",0.12,50,50,full_val,0.4009527116912516,"{""json"": 48, ""keyword"": 2}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,crossover,28;24,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Example messages and labels: Example message: Racist ass white ass people Example labels: ['race'] Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don't like you either so don't try to look cute. By the way, your accent sucks terribly, my friend. Example labels: ['directed_vs_generalized', 'national_origin'] Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: ['gender']. Message: {input} --- Output ONLY a JSON array of category names.""
+}",0.28,50,50,full_val,0.5892330278940187,"{""json"": 45, ""keyword"": 5}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+5,random_mutation:instruction_expansion,24,"---
+---
+You are an expert in hate-speech research and content moderation. Given a message, identify which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, national_origin, race, disability, religion, sexual_orientation. Example labels: [""race""]. Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly, my friend. Example labels: [""directed_vs_generalized"", ""national_origin""]. Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: [""gender""].
+
+Message: {input}
+---
+Output ONLY a JSON array of category names.
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Instructions for category selection:
+- **Violence**: The message contains explicit references to violence, threats, or incitements to violence.
+- **Directed_vs_generalized**: The message targets a specific individual or a group in a way that is more personal and direct (directed) or addresses a broader audience (generalized).
+- **Gender**: The message shows prejudice, discrimination, or contempt based on a person's gender.
+- **Race**: The message shows prejudice, discrimination, or contempt based on a person's race or ethnicity.
+- **National_origin**: The message shows prejudice, discrimination, or contempt based on a person's national origin or ancestry.
+- **Disability**: The message shows prejudice, discrimination, or contempt based on a person's physical or mental disability.
+- **Religion**: The message shows prejudice, discrimination, or contempt based on a person's religious beliefs or practices.
+- **Sexual_orientation**: The message shows",0.16,50,50,full_val,0.4903939335518283,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",506,4507
+6,crossover,28;35,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []."",
+  ""Categories"": [""violence"", ""directed_vs_generalized"", ""gender"", ""race"", ""national_origin"", ""disability"", ""religion"", ""sexual_orientation""],
+  ""Examples"": [
+    {
+      ""Message"": ""Racist ass white ass people"",
+      ""Labels"": [""race""]
+    },
+    {
+      ""Message"": ""You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend."",
+      ""Labels"": [""directed_vs_generalized"", ""national_origin""]
+    },
+    {
+      ""Message"": ""Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!"",
+      ""Labels"": [""gender""]
+    }
+  ],
+  ""Message"": ""{input}"",
+  ""Output"": ""ONLY a JSON array of category names.""
+}",0.22,50,50,full_val,0.5525215467063292,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,random_mutation:constraint_addition,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. DO NOT ADD ANY EXTRA TEXT.""
+}",0.12,50,50,full_val,0.4501969095719096,"{""json"": 42, ""keyword"": 8}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,apo,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation, gender, race, national_origin, disability. Message: {input}. Ensure your response is a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Pay special attention to the context and nuances of the message to avoid overpredicting categories.""
+}",0.14,50,50,full_val,0.5058713889596242,"{""json"": 49, ""json_substring"": 1}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,fewshot,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]
+
+Here are some labelled examples:
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please?
+Example labels: [""disability""]
+
+Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the english language anymore.
+Example labels: [""race""]
+
+Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people.
+Example labels: [""directed_vs_generalized"", ""race""]
+
+Here are some labelled examples:
+Example message: An ugly man in a wig and dress, is still just an ugly man in a wig and dress... NOT A WOMAN!!!
+Example labels: [""sexual_orientation""]",0.18,50,50,full_val,0.622804054054054,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,opro,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Example messages and labels: Example message: Racist ass white ass people Example labels: ['race'] Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly, my friend. Example labels: ['directed_vs_generalized', 'national_origin'] Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: ['gender']. Example message: Why are niggers superior athletically to all other races? Example labels: ['race']. Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people. Example labels: ['directed_vs_generalized', 'race']. Message: {input} --- Output ONLY a JSON array of category names.""
+}",0.12,50,50,full_val,0.46693932523110404,"{""json"": 35, ""keyword"": 15}",0,2,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,crossover,35;28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Example messages and labels: Example message: Racist ass white ass people Example labels: ['race'] Example message: fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: ['gender'] Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please? Example labels: ['disability'] Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the english language anymore. Example labels: ['race'] Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people. Example labels: ['directed_vs_generalized', 'race']
+}",0.28,50,50,full_val,0.5599286130536131,"{""keyword"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,random_mutation:expert_persona_injection,35,"{
+  ""prompt"": ""You are an expert hate-speech researcher. You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation. Example messages and labels: Example message: Racist ass white ass people Example labels: ['race'] Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don't like you either so don't try to look cute. By the way, your accent sucks terribly, my friend. Example labels: ['directed_vs_generalized', 'national_origin'] Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up! Example labels: ['gender']. Message: {input} --- Output ONLY a JSON array of category names.""
+}",0.3,50,50,full_val,0.6185325437820901,"{""json"": 44, ""keyword"": 6}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912
+6,fewshot,28,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.
+
+Here are some labelled examples:
+Example message: Racist ass white ass people
+Example labels: [""race""]
+
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Feminism is just about women crying about the fabricated bullshit they go through. It's a JOKE! They should just man up!
+Example labels: [""gender""]
+
+Here are some labelled examples:
+Example message: Oh Christ, no more autism please, hearing about it as nauseam is starting to make me sick. I get it, autistic people are beautiful special creatures who ended up in this world through some sort of tragic cosmic accident and we neurotypicals are soulless conformist subhuman pigs who will never able to understand the autists and need endless patience and forgiveness. Can we now get on with our lives please?
+Example labels: [""disability""]
+
+Example message: It's so sick and sad that young people will think of the concept of clout like rap niggers invented it because they aren't even properly taught about the english language anymore.
+Example labels: [""race""]
+
+Example message: This sick, disgusting, white terrorist/fascist killed more than 50 innocent people.
+Example labels: [""directed_vs_generalized"", ""race""]
+
+Here are some labelled examples:
+Example message: I wish HIV to your butthole male whore
+Example labels: [""violence"", ""directed_vs_generalized"", ""gender""]",0.24,50,50,full_val,0.6252347816910228,"{""json"": 50}",0,1,,"{""random_mutation"": 0.2, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.2, ""crossover"": 0.2}",405,4912

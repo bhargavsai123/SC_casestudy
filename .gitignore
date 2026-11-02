@@ -1,0 +1,28 @@
+# Python / environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS / editor
+.DS_Store
+.continue/
+.idea/
+.vscode/
+*.swp
+
+# Build artifacts
+.gaapo_build/
+build/
+dist/
+
+# Outputs / temp (keep v2 source, ignore new build temp)
+/tmp/
+*.tmp
+*.log
+!content/gaapo_outputs_v2/
+
+# Large binaries already in repo (optional exclusion for future runs)
+# .pptx / .pdf / .docx / .npy / .npz — kept here per deliverables

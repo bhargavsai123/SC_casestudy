@@ -1,0 +1,110 @@
+[
+  {
+    "prompt_id":0,
+    "generation":7,
+    "strategy":"apo",
+    "validation_score":0.46,
+    "validation_rank":1,
+    "test_score":0.24,
+    "test_macro_f1":0.5998028917,
+    "pred_labels_mean":2.045,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n    \"Message: {input}. Consider the message for potential hate speech categories and ensure the prediction is accurate and concise, including only categories that apply:\",\n    \"1. Does the message promote or incite violence? ['violence']\",\n    \"2. Is the target of the message directed vs. generalized? ['directed_vs_generalized']\",\n    \"3. Does the message involve gender? ['gender']\",\n    \"4. Does the message involve race? ['race']\",\n    \"5. Does the message involve national origin? ['national_origin']\",\n    \"6. Does the message involve disability? ['disability']\",\n    \"7. Does the message involve religion? ['religion']\",\n    \"8. Does the message involve sexual orientation? ['sexual_orientation']\",\n    \"Output the final result as a JSON array of category names.\"\n]"
+  },
+  {
+    "prompt_id":1,
+    "generation":8,
+    "strategy":"random_mutation:constraint_addition",
+    "validation_score":0.44,
+    "validation_rank":2,
+    "test_score":0.265,
+    "test_macro_f1":0.589825099,
+    "pred_labels_mean":1.78,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n    \"Message: {input}. Consider the message for potential hate speech categories:\",\n    \"1. Does the message promote or incite violence? ['violence']\",\n    \"2. Is the target of the message directed vs. generalized? ['directed_vs_generalized']\",\n    \"3. Does the message involve gender? ['gender']\",\n    \"4. Does the message involve race? ['race']\",\n    \"5. Does the message involve national origin? ['national_origin']\",\n    \"6. Does the message involve disability? ['disability']\",\n    \"7. Does the message involve religion? ['religion']\",\n    \"8. Does the message involve sexual orientation? ['sexual_orientation']\",\n    \"Ensure the prediction is accurate and concise, including only categories that apply. Output the final result as a JSON array without any additional text.\"\n]"
+  },
+  {
+    "prompt_id":2,
+    "generation":8,
+    "strategy":"apo",
+    "validation_score":0.42,
+    "validation_rank":3,
+    "test_score":0.3,
+    "test_macro_f1":0.6302826959,
+    "pred_labels_mean":1.84,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n    \"Message: {input}. Consider the message for potential hate speech categories and ensure the prediction is accurate and concise, including only categories that apply:\",\n    \"1. Does the message promote or incite violence? ['violence']\",\n    \"2. Is the target of the message directed or generalized? ['directed_vs_generalized']\",\n    \"3. Does the message involve gender? ['gender']\",\n    \"4. Does the message involve race? ['race']\",\n    \"5. Does the message involve national origin? ['national_origin']\",\n    \"6. Does the message involve disability? ['disability']\",\n    \"7. Does the message involve religion? ['religion']\",\n    \"8. Does the message involve sexual orientation? ['sexual_orientation']\",\n    \"Output the final result as a JSON array of category names.\"\n]"
+  },
+  {
+    "prompt_id":3,
+    "generation":7,
+    "strategy":"random_mutation:structural_variation",
+    "validation_score":0.42,
+    "validation_rank":4,
+    "test_score":0.325,
+    "test_macro_f1":0.6317297659,
+    "pred_labels_mean":1.92,
+    "gold_labels_mean":1.625,
+    "prompt":"Message: {input}. \n1. Classify the message into potential hate speech categories as a JSON array.\n2. Categories: ['violence', 'directed_vs_generalized', 'gender', 'race', 'national_origin', 'disability', 'religion', 'sexual_orientation'].\n3. Ensure the prediction is accurate, concise, and includes only the relevant categories that apply to the message. Avoid unnecessary categories to improve the overall accuracy."
+  },
+  {
+    "prompt_id":4,
+    "generation":6,
+    "strategy":"random_mutation:constraint_addition",
+    "validation_score":0.42,
+    "validation_rank":5,
+    "test_score":0.305,
+    "test_macro_f1":0.6327477449,
+    "pred_labels_mean":1.745,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n    \"Message: {input}. Classify into potential hate speech categories as a JSON array: ['violence', 'directed_vs_generalized', 'gender', 'race', 'national_origin', 'disability', 'religion', 'sexual_orientation']. Ensure the prediction covers all relevant categories and avoids unnecessary ones. Output ONLY a JSON array of category names without any additional text.\"\n]"
+  },
+  {
+    "prompt_id":5,
+    "generation":7,
+    "strategy":"apo",
+    "validation_score":0.4,
+    "validation_rank":6,
+    "test_score":0.325,
+    "test_macro_f1":0.6364612496,
+    "pred_labels_mean":1.295,
+    "gold_labels_mean":1.625,
+    "prompt":"---\nMessage: {input}. Classify into potential hate speech categories as a JSON array: ['violence', 'directed_vs_generalized', 'gender', 'race', 'national_origin', 'disability', 'religion', 'sexual_orientation']. Pay special attention to the context and ensure the prediction is accurate, concise, and includes only the relevant categories that apply to the message, avoiding unnecessary categories to improve the overall accuracy. Focus on identifying the primary themes of hate speech in the provided text.\n---"
+  },
+  {
+    "prompt_id":6,
+    "generation":6,
+    "strategy":"random_mutation:task_decomposition",
+    "validation_score":0.4,
+    "validation_rank":7,
+    "test_score":0.255,
+    "test_macro_f1":0.6220307506,
+    "pred_labels_mean":1.76,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n    \"Message: {input}. Consider the message for potential hate speech categories:\",\n    \"1. Does the message promote or incite violence? ['violence']\",\n    \"2. Is the target of the message directed vs. generalized? ['directed_vs_generalized']\",\n    \"3. Does the message involve gender? ['gender']\",\n    \"4. Does the message involve race? ['race']\",\n    \"5. Does the message involve national origin? ['national_origin']\",\n    \"6. Does the message involve disability? ['disability']\",\n    \"7. Does the message involve religion? ['religion']\",\n    \"8. Does the message involve sexual orientation? ['sexual_orientation']\",\n    \"Ensure the prediction is accurate and concise, including only categories that apply and output the final result as a JSON array.\"\n]"
+  },
+  {
+    "prompt_id":40,
+    "generation":5,
+    "strategy":"crossover",
+    "validation_score":0.28,
+    "validation_rank":41,
+    "test_score":0.24,
+    "test_macro_f1":0.5583680298,
+    "pred_labels_mean":1.38,
+    "gold_labels_mean":1.625,
+    "prompt":"[\n  \"Message: {input}. Classify into potential hate speech categories: religion, sexual_orientation. Output ONLY a JSON array of category names.\"\n]\n\nCategories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation."
+  },
+  {
+    "prompt_id":70,
+    "generation":3,
+    "strategy":"random_mutation:concise_optimization",
+    "validation_score":0.14,
+    "validation_rank":71,
+    "test_score":0.14,
+    "test_macro_f1":0.5303951333,
+    "pred_labels_mean":2.095,
+    "gold_labels_mean":1.625,
+    "prompt":"---\n---\n---\nYou are a content moderation classifier. Given a message, output ONLY a JSON array of applicable category names from the list: [\"violence\", \"directed_vs_generalized\", \"gender\", \"race\", \"national_origin\", \"disability\", \"religion\", \"sexual_orientation\"].\n\nMessage: {input}\n\nRespond with ONLY a JSON array of the applicable category names, e.g. [\"violence\", \"religion\"]. If none apply, respond with []. Do not add any extra text.\n---"
+  }
+]

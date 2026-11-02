@@ -1,0 +1,8 @@
+{
+  "prompt": "[\n    \"Message: {input}. Consider the message for potential hate speech categories and ensure the prediction is accurate and concise, including only categories that apply:\",\n    \"1. Does the message promote or incite violence? ['violence']\",\n    \"2. Is the target of the message directed vs. generalized? ['directed_vs_generalized']\",\n    \"3. Does the message involve gender? ['gender']\",\n    \"4. Does the message involve race? ['race']\",\n    \"5. Does the message involve national origin? ['national_origin']\",\n    \"6. Does the message involve disability? ['disability']\",\n    \"7. Does the message involve religion? ['religion']\",\n    \"8. Does the message involve sexual orientation? ['sexual_orientation']\",\n    \"Output the final result as a JSON array of category names.\"\n]",
+  "score": 0.46,
+  "generation": 7,
+  "strategy": "apo",
+  "n_examples": 50,
+  "score_kind": "full_val"
+}

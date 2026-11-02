@@ -1,0 +1,34 @@
+{
+  "n_prompts": 9,
+  "spearman_rho": 0.27899308369860726,
+  "spearman_p": 0.46722697802517926,
+  "kendall_tau": 0.1819017187772497,
+  "kendall_p": 0.5165484841465026,
+  "pearson_r": 0.7804758342686661,
+  "pearson_p": 0.013067961565581704,
+  "mean_val_minus_test": 0.10944444444444446,
+  "median_val_minus_test": 0.11499999999999999,
+  "leader_by_validation": {
+    "validation": 0.46,
+    "test": 0.24,
+    "n_prompts_with_higher_test": 6,
+    "best_test": 0.325,
+    "strategy": "apo",
+    "generation": 7
+  },
+  "prompt_with_best_test": {
+    "validation": 0.42,
+    "validation_rank": 4,
+    "test": 0.325,
+    "strategy": "random_mutation:structural_variation"
+  },
+  "n_within_noise_of_leader": 7,
+  "within_noise_test_range": [
+    0.24,
+    0.325
+  ],
+  "within_noise_validation_range": [
+    0.4,
+    0.46
+  ]
+}

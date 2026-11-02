@@ -1,0 +1,810 @@
+generation,strategy,parent_ids,prompt,validation_score,n_examples,n_unique_examples,score_kind,macro_f1,parse_methods,n_parse_failures,slot_count,parent_score,weights_json,requests_this_gen,requests_total
+0,seed,,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].",0.1,50,50,full_val,0.42839735427277875,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",52,52
+1,opro,1,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nRespond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}",0.12,50,50,full_val,0.46087420040109667,"{""json"": 46, ""keyword"": 4}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,random_mutation:creative_backstory,1,"---
+You are a content moderation classifier. Imagine you are working for a social media platform and your task is to quickly categorize user messages that might violate our community guidelines based on the categories listed below. This is crucial for maintaining a safe and inclusive environment for all users.
+
+Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.08,50,50,full_val,0.4687687312687313,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,random_mutation:role_assignment,1,"---
+You are a content moderation classifier. Your sole job is to output valid JSON labels. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.08,50,50,full_val,0.4057506298486774,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: Crazy auntie get rid of your autistic son and make good to planet
+Example labels: [""violence"", ""directed_vs_generalized"", ""disability""]
+
+Example message: Idiots as always. Religion is the most stupid thing you humans invented.
+Example labels: [""religion""]
+
+Example message: why the hell is this Norwegian speaking about our LAWS? SPEAK FOR YOUR OWN Scandinavian scam
+Example labels: [""directed_vs_generalized"", ""national_origin""]",0.02,50,50,full_val,0.39027958128968787,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,apo,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, focusing on the most relevant categories and ensuring accurate classification of hate speech elements, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.04,50,50,full_val,0.4036376656706435,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,crossover_rejected,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].",0.1,50,50,full_val,0.42839735427277875,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,random_mutation:constraint_addition,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with []. Do not include any additional text in your response.
+---",0.1,50,50,full_val,0.45791500810850655,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+1,random_mutation:task_decomposition,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+1. Consider the category ""violence"": Does the message contain any indication of violence? If yes, include ""violence"" in the final output.
+2. Consider the category ""directed_vs_generalized"": Is the message directed or generalized? If applicable, include ""directed_vs_generalized"" in the final output.
+3. Consider the category ""gender"": Does the message relate to gender? If applicable, include ""gender"" in the final output.
+4. Consider the category ""race"": Does the message relate to race? If applicable, include ""race"" in the final output.
+5. Consider the category ""national_origin"": Does the message relate to national origin? If applicable, include ""national_origin"" in the final output.
+6. Consider the category ""disability"": Does the message relate to disability? If applicable, include ""disability"" in the final output.
+7. Consider the category ""religion"": Does the message relate to religion? If applicable, include ""religion"" in the final output.
+8. Consider the category ""sexual_orientation"": Does the message relate to sexual orientation? If applicable, include ""sexual_orientation"" in the final output.
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.1,50,50,full_val,0.4940448640913037,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,458
+2,random_mutation:constraint_addition,1,"---
+You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with []. Do not include any additional text in your response.
+---",0.1,50,50,full_val,0.45791500810850655,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,apo,2,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nEnsure the model considers the context and nuances of the message. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}",0.14,50,50,full_val,0.4872512024873344,"{""json"": 47, ""keyword"": 3}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,random_mutation:structural_variation,1,"---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---",0.28,50,50,full_val,0.5763930130682049,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,random_mutation:creative_backstory,1,"---
+You are a content moderation classifier. Imagine you are working for a social media platform and your task is to quickly categorize user messages that might violate our community guidelines based on the categories listed below. This is crucial for maintaining a safe and inclusive environment for all users.
+
+Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.08,50,50,full_val,0.4687687312687313,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,fewshot,1,"You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+
+Here are some labelled examples:
+Example message: Whites smoke to much ciggssss and drugs shot those co. Down.. Just say no to drugs kids
+Example labels: [""race""]
+
+Example message: Maybe it's because you're autistic?? Wish you death
+Example labels: [""violence"", ""directed_vs_generalized"", ""disability""]",0.08,50,50,full_val,0.3910472123084447,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,opro,1,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nRespond with ONLY a JSON array of the applicable category names from the list above, e.g., ['violence', 'religion']. If none apply, respond with []. Additionally, ensure the categories are relevant and not overly broad to improve accuracy.""
+}",0.12,50,50,full_val,0.4883390875942854,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,random_mutation:expert_persona_injection,1,"---
+You are an expert hate-speech researcher. You are a content moderation classifier. Given a message, identify which of the following categories apply (zero or more may apply):
+violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation
+
+Message: {input}
+
+Respond with ONLY a JSON array of the applicable category names from the list above, e.g. [""violence"",""religion""]. If none apply, respond with [].
+---",0.14,50,50,full_val,0.4590537028617524,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+2,crossover,2;1,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, religion, sexual_orientation. Message: {input}. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.14,50,50,full_val,0.4940303103536167,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",355,813
+3,opro,10,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given the message: {input}, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nPay close attention to the context, tone, and intent of the message. Respond with ONLY a JSON array of the applicable category names from the list above, e.g., ['violence', 'religion']. If none apply, respond with [].""
+}",0.22,50,50,full_val,0.49644735561718484,"{""json"": 48, ""keyword"": 2}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,apo,10,"---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---",0.3,50,50,full_val,0.572311476837339,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,random_mutation:instruction_expansion,10,"---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply based on the content:
+
+   - **violence**: If the message contains descriptions, threats, or glorifications of violent acts.
+   - **directed_vs_generalized**: If the message is directed at a specific individual or group, select ""directed"". If it is not directed at a specific person or group, select ""generalized"".
+   - **gender**: If the message involves gender-based discrimination, harassment, or stereotypes.
+   - **race**: If the message involves racial discrimination, harassment, or stereotypes.
+   - **national_origin**: If the message involves discrimination, harassment, or stereotypes based on national origin.
+   - **disability**: If the message involves disability-based discrimination, harassment, or stereotypes.
+   - **religion**: If the message involves religious discrimination, harassment, or stereotypes.
+   - **sexual_orientation**: If the message involves sexual orientation-based discrimination, harassment, or stereotypes.
+
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---",0.22,50,50,full_val,0.46441040843214754,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,random_mutation:task_decomposition,10,"---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. Consider the category ""violence"":
+   - Is violence present? (yes/no)
+3. Consider the category ""directed_vs_generalized"":
+   - Is the content directed or generalized? (directed/generalized)
+4. Consider the category ""gender"":
+   - Does the message involve gender? (yes/no)
+5. Consider the category ""race"":
+   - Does the message involve race? (yes/no)
+6. Consider the category ""national_origin"":
+   - Does the message involve national origin? (yes/no)
+7. Consider the category ""disability"":
+   - Does the message involve disability? (yes/no)
+8. Consider the category ""religion"":
+   - Does the message involve religion? (yes/no)
+9. Consider the category ""sexual_orientation"":
+   - Does the message involve sexual orientation? (yes/no)
+10. From the categories considered, compile the applicable category names into a JSON array. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---",0.26,50,50,full_val,0.5095559909646596,"{""json"": 48, ""keyword"": 2}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,apo,9,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nConsider the context and nuances of the message, and ensure the model accurately reflects the gold labels provided. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].\n\nGold labels: ['gold_label1', 'gold_label2']\n\nModel predicted: ['predicted_label1', 'predicted_label2']""
+}",0.02,50,50,full_val,0.22531717508497692,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,crossover,9;10,"---
+You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion. Respond with only a JSON array of the applicable category names. If none apply, respond with []. Example response: [""violence"",""religion""].
+
+Message: {input}
+---
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.06,50,50,full_val,0.47215184362892343,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,random_mutation:constraint_addition,9,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nEnsure the model considers the context and nuances of the message. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with []. Do not include any additional text.""
+}",0.1,50,50,full_val,0.4571881469979296,"{""json"": 43, ""keyword"": 7}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+3,fewshot,9,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given a message, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nMessage: {input}\n\nEnsure the model considers the context and nuances of the message. Respond with ONLY a JSON array of the applicable category names from the list above, e.g. ['violence', 'religion']. If none apply, respond with [].""
+}
+
+Here are some labelled examples:
+Example message: Gayness should be removed from the face of the earth
+Example labels: [""violence"", ""sexual_orientation""]",0.06,50,50,full_val,0.39431818181818185,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,1320
+4,opro,16,"{
+  ""prompt"": ""You are a content moderation classifier tasked with identifying potential hate speech. Given the message: {input}, determine which of the following categories apply (zero or more may apply): violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.\n\nPay special attention to the following rules:
+   - If the message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+\n\nRespond with ONLY a JSON array of the applicable category names from the list above, e.g., ['violence', 'religion']. If none apply, respond with [].""
+}",0.2,50,50,full_val,0.4654611179865849,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,fewshot,10,"---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+
+Here are some labelled examples:
+Example message: You really think that European People will like you if you humiliate Muslims? I think that's a big mistake because you're an Indian. I mean, they don' like you either so don' try to look cute. By the way, your accent sucks terribly my friend.
+Example labels: [""directed_vs_generalized"", ""national_origin""]
+
+Example message: Why do negroes tear down their own neighborhoods when a black thug gets killed by law enforcement? Must be because of low IQ.
+Example labels: [""race""]
+
+Example message: lock women up at home . Female are just to stupid to understand anything .  Iam Agnostic .
+Example labels: [""gender""]",0.02,50,50,full_val,0.2350700280112045,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,random_mutation:constraint_addition,10,"---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Respond with ONLY a JSON array of the applicable category names. If none apply, respond with `[]`. Do not include any additional text.
+
+Example response: [""violence"",""religion""]
+---",0.24,50,50,full_val,0.5430521571825919,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,random_mutation:expert_persona_injection,10,"---
+---
+You are an expert hate-speech researcher.
+
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---",0.28,50,50,full_val,0.5662065495137393,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,crossover,10;16,"---
+To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender (select both the relevant category and 'hate_speech')
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---
+
+Categories to choose from: violence, directed_vs_generalized, gender, race, national_origin, disability, religion, sexual_orientation.",0.1,50,50,full_val,0.3896675084175084,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,random_mutation:creative_backstory,10,"---
+---
+In a scenario where a social media platform is enhancing its content moderation policies to better protect its users from harmful content, it is crucial to accurately classify messages. Follow these steps to help streamline the moderation process:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---",0.2,50,50,full_val,0.46844971453667106,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,apo,10,"---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---",0.3,50,50,full_val,0.572311476837339,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+4,apo,16,"---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---
+---",0.3,50,50,full_val,0.6377232749102077,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",406,1726
+5,crossover,29;16,"---
+To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---",0.32,50,50,full_val,0.5871095502467897,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,opro,16,"To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - If the message contains hate speech directed towards a specific group, select the relevant category and 'hate_speech' (e.g., ""race"" and ""hate_speech"" for a message about racial hate).
+   - If the message includes threats or violence, select the relevant category and 'violence'.
+   - If the message contains derogatory terms or negative connotations towards a specific group, select the relevant category if appropriate.
+   - If the message mentions religion with a negative connotation, select both the relevant category and 'religion'.
+   - If the message is neutral or does not fit any categories, select [].
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""race"",""hate_speech""]",0.28,50,50,full_val,0.5259928477319782,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,random_mutation:expert_persona_injection,16,"---
+---
+---
+You are an expert hate-speech researcher. To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---",0.24,50,50,full_val,0.4578907952069717,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,random_mutation:task_decomposition,29,"---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. For each category, determine if the message falls under it:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. From the categories evaluated, if any apply, add their names to the JSON array. If none apply, the response should be [].
+
+4. Pay special attention to the following:
+   - If the message contains hate speech directed towards a specific group, include both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, include only the relevant category.
+   - If the message includes violence or threats, include both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, include only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, include both the relevant category and 'religion'. If the message mentions a religion neutrally, include only the relevant category.
+
+5. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---
+---",0.18,50,50,full_val,0.38926999311430255,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,random_mutation:structural_variation,16,"---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+2. Identify the message: Message: {input}
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---
+---",0.08,50,50,full_val,0.2755841901013755,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,apo,29,"---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+   - For messages with multiple issues, ensure all relevant categories are selected.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---
+---
+---",0.34,50,50,full_val,0.6581165864847079,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,fewshot,29,"---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""religion""]
+---
+---
+---
+
+Here are some labelled examples:
+Example message: I wish HIV to your butthole male whore
+Example labels: [""violence"", ""directed_vs_generalized"", ""gender""]",0.12,50,50,full_val,0.5194651684013386,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+5,random_mutation:instruction_expansion,29,"---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence: Consider this category for messages that describe or promote physical or psychological harm, threats of violence, or violent imagery.
+   - directed_vs_generalized: Use this category when the message is specifically targeting an individual or group. Otherwise, use 'generalized'.
+   - gender: Select this category if the message contains content that is gender-specific and potentially harmful or discriminatory.
+   - race: Use this category if the message contains content that is race-specific and potentially harmful or discriminatory.
+   - national_origin: Choose this category if the message contains content that is related to a person's country of origin and is potentially harmful or discriminatory.
+   - disability: Select this category if the message contains content that is disability-specific and potentially harmful or discriminatory.
+   - religion: Use this category if the message contains content that is related to religion and is potentially harmful or discriminatory.
+   - sexual_orientation: Choose this category if the message contains content that is related to sexual orientation and is potentially harmful or discriminatory.
+
+3. Pay special attention to the following:
+   - If a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence",0.28,50,50,full_val,0.48689779423475077,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",457,2183
+6,fewshot,30,"---
+To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---
+
+Here are some labelled examples:
+Example message: Well I thinks it ok to turn female to male because they then can be used in the military and be stronger but male to female shall be banned so I guess a form of trans is ok because it's better for the state
+Example labels: [""sexual_orientation""]",0.1,50,50,full_val,0.3629712438789518,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,random_mutation:constraint_addition,35,"---
+---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+   - For messages with multiple issues, ensure all relevant categories are selected.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with []. Do not include any additional text.
+
+Example response: [""violence"",""religion""]
+---
+---",0.32,50,50,full_val,0.6456185317072414,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,random_mutation:task_decomposition,35,"---
+---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. Evaluate the message for each category individually:
+   - violence: {check if the message contains any form of violence or threats, including historical or fictional contexts. If applicable, select 'violence'.}
+   - directed_vs_generalized: {check if the message is directed vs generalized, including hate speech. If hate speech is present, also select 'hate_speech'.}
+   - gender: {check if the message contains any issues related to gender.}
+   - race: {check if the message contains any issues related to race.}
+   - national_origin: {check if the message contains any issues related to national origin.}
+   - disability: {check if the message contains any issues related to disability.}
+   - religion: {check if the message contains any issues related to religion. If the message mentions a specific religion with a negative connotation, also select 'religion'.}
+   - sexual_orientation: {check if the message contains any issues related to sexual orientation.}
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+   - For messages with multiple issues, ensure all relevant categories are selected.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond",0.24,50,50,full_val,0.46120749721293197,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,opro,35,"To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Select 'hate_speech' if the message contains hate speech directed towards a specific group. If the message uses derogatory terms but isn't hate speech, select only the relevant category.
+   - Select 'violence' if the message includes violence or threats, even if it is historical or fictional. Ensure 'violence' is selected if the message only mentions violence in a historical or fictional context.
+   - Select 'religion' if the message mentions a specific religion with a negative connotation. Select only the relevant category if the message mentions a religion neutrally.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`",0.26,50,50,full_val,0.5693915786307091,"{""json"": 50}",0,2,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,apo,35,"---
+---
+---
+---
+---
+To classify a message for content moderation, follow these steps:
+
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'hate_speech' if it is hate-related, or only the relevant category if it is not. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'hate_speech'. If the message mentions a religion neutrally, select only the relevant category.
+   - For messages with multiple issues, ensure all relevant categories are selected.
+
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with [].
+
+Example response: [""violence"",""hate_speech""]
+---
+---
+---
+---",0.32,50,50,full_val,0.5399379667815023,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,crossover,30;35,"---
+To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If violence or threats, select both the relevant category and 'violence'. If the message only mentions violence in a historical or fictional context, select only the relevant category.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'. If the message mentions a religion neutrally, select only the relevant category.
+   - For messages with multiple issues, ensure all relevant categories are selected.
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---",0.3,50,50,full_val,0.5870794340463458,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,apo,30,"---
+---
+To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select the relevant category and 'religion'.
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---
+---",0.36,50,50,full_val,0.5695818070818071,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690
+6,random_mutation:expert_persona_injection,30,"---
+---
+You are an expert hate-speech researcher. To classify a message for content moderation, follow these steps:
+1. Identify the message: Message: {input}
+2. From the following categories, select any that apply:
+   - violence
+   - directed_vs_generalized
+   - gender
+   - race
+   - national_origin
+   - disability
+   - religion
+   - sexual_orientation
+3. Pay special attention to the following:
+   - Ensure that if a message contains hate speech directed towards a specific group, select both the relevant category and 'hate_speech'. If a message is not hate speech but uses derogatory terms, select only the relevant category.
+   - If the message includes violence or threats, select both the relevant category and 'violence'.
+   - If the message mentions a specific religion with a negative connotation, select both the relevant category and 'religion'.
+4. Respond with only a JSON array of the applicable category names. If none apply, respond with `[]`.
+
+Example response: `[""violence"",""religion""]`
+---
+---",0.3,50,50,full_val,0.5108270202020202,"{""json"": 50}",0,1,,"{""random_mutation"": 0.4, ""apo"": 0.2, ""opro"": 0.2, ""fewshot"": 0.1, ""crossover"": 0.1}",507,2690

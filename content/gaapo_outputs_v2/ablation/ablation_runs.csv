@@ -1,0 +1,13 @@
+config,repeat,seed,best_val,best_val_kind,best_generation,best_strategy,test_score,test_macro_f1,n_logged,requests,elapsed_s
+full_hybrid,0,42,0.18,full_val,6,random_mutation:task_decomposition,0.225,0.6608112551129033,49,1720,1608.2
+without_apo,0,42,0.26,full_val,2,random_mutation:concise_optimization,0.16,0.533630613690038,44,1317,2080.5
+without_opro,0,42,0.26,full_val,2,random_mutation:concise_optimization,0.16,0.533630613690038,47,709,654.8
+without_random_mutation,0,42,0.12,full_val,1,apo,0.075,0.45087309211257576,37,1007,908.0
+full_hybrid,1,1042,0.28,full_val,6,random_mutation:concise_optimization,0.25,0.5936767803406797,47,1726,2652.1
+without_apo,1,1042,0.2,full_val,2,crossover,0.11,0.5429705455418479,46,1525,1646.3
+without_opro,1,1042,0.24,full_val,4,random_mutation:task_decomposition,0.165,0.5209977247959444,50,1572,2157.7
+without_random_mutation,1,1042,0.24,full_val,2,crossover,0.125,0.5326846912678115,40,1414,1383.9
+full_hybrid,2,2042,0.28,full_val,4,apo,0.22,0.510428658628267,48,1876,2500.5
+without_apo,2,2042,0.22,full_val,3,crossover,0.155,0.48765675664870645,45,1322,1321.8
+without_opro,2,2042,0.3,full_val,6,random_mutation:role_assignment,0.3,0.6240712185870949,47,658,742.6
+without_random_mutation,2,2042,0.2,full_val,5,opro,0.18,0.5069017033422882,41,1515,1414.6
