@@ -14,11 +14,8 @@ build artifacts, old output versions, log files, and partial outputs.
 | `GAAPO_improved.ipynb` | The corrected, runnable implementation — the code deliverable |
 | `run_sweep.py` | Main run + ablation |
 | `run_adaptive.py` | Extension (credit-driven controller) |
-| `run_probe.py` | Section 4.1 probe, resumable, one prompt per invocation |
-| `plot_probe.py` | Probe plotting |
-| `plot_slide_chart.py` | Slide chart plotting |
-| `build_slides.py` | Builds the presentation deck |
-| `preview_slides.py` | PNG preview of the deck (for layout checking without PowerPoint) |
+| `run_probe.py` | Section 4.1 probe, resumable |
+| `plot_probe.py` | Probe results plotting |
 
 ## Results — `content/gaapo_outputs_v2/`
 
