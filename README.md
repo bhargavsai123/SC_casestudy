@@ -1,20 +1,43 @@
-# GAAPO case study — deliverables
+# GAAPO case study — deliverables (cleaned)
 
 Soft Computing case study: reproducing Sécheresse et al. (2025), *GAAPO: genetic algorithm
 applied to prompt optimization* (Frontiers in AI 8:1613007), correcting its reference
 implementation, and testing the part of the method the paper leaves unjustified.
 
-## Read these
+This repository has been cleaned for final submission. Removed: virtual environments,
+build artifacts, old output versions, log files, and partial outputs.
+
+## Code (root)
 
 | File | What it is |
 |---|---|
-| `GAAPO_case_study.pdf` | The report: audit, corrected run, probe, ablation, extension (16 pages) |
-| `GAAPO_case_study.docx` | Same report, editable |
-| `GAAPO_case_study_slides.pptx` | 13-slide presentation with speaker notes |
 | `GAAPO_improved.ipynb` | The corrected, runnable implementation — the code deliverable |
+| `run_sweep.py` | Main run + ablation |
+| `run_adaptive.py` | Extension (credit-driven controller) |
+| `run_probe.py` | Section 4.1 probe, resumable, one prompt per invocation |
+| `plot_probe.py` | Probe plotting |
+| `plot_slide_chart.py` | Slide chart plotting |
+| `build_slides.py` | Builds the presentation deck |
+| `preview_slides.py` | PNG preview of the deck (for layout checking without PowerPoint) |
 
-The report exists in three forms: `content/gaapo_outputs_v2/case_study.md` (source),
-`case_study.typ` (generated), and the `.pdf` / `.docx` built from it.
+## Results — `content/gaapo_outputs_v2/`
+
+| File / Directory | What it is |
+|---|---|
+| `case_study.md` | The report: audit, corrected run, probe, ablation, extension (16 pages) |
+| `case_study_report.md` | Markdown report version |
+| `case_study.typ` | Typst source (compiles to PDF) |
+| `case_study_pdf.typ` | Typst source for PDF |
+| `case_study.docx` | Editable report |
+| `GAAPO_case_study.pdf` | PDF report |
+| `GAAPO_case_study_slides.pptx` | 13-slide presentation with speaker notes |
+| `candidate_log.csv` | Every candidate evaluation from the main run (116 rows, 102 distinct prompts) |
+| `best_prompt.json` | Best evolved prompt configuration |
+| `run_manifest.json` | Versions, models, seeds, split hashes, request counts |
+| `ablation/` | Per-run tables, test predictions, paired statistical tests |
+| `adaptive/` | Four arms × three repeats, weight trajectories, McNemar and bootstrap tables |
+| `probe/` | Nine re-scored candidates, per-example outcomes, summary statistics |
+| `figures/` | All report and slide figures (PNG) |
 
 ## What was done
 
@@ -32,37 +55,6 @@ The report exists in three forms: `content/gaapo_outputs_v2/case_study.md` (sour
    fixed / uniform / random-allocation controls at equal budget. Null result, with a diagnosed
    mechanism (credit ±0.2 against τ = 0.5 ⇒ at most 1.5:1 odds) and a measured explanation
    (the selection signal itself is too noisy at this scale).
-
-## Rebuilding
-
-```bash
-# report (needs pandoc + the typst Python package)
-cd content/gaapo_outputs_v2
-pandoc case_study.md -f markdown -t typst -o case_study.typ
-../../.venv/bin/python -c "import typst; typst.compile('case_study_pdf.typ', output='GAAPO_case_study.pdf')"
-pandoc case_study.md -o case_study.docx --resource-path=.:figures
-
-# presentation (from the repository root)
-cd ../..
-.venv/bin/python build_slides.py        # reads probe/probe_summary.json
-.venv/bin/python preview_slides.py      # PNG previews in /tmp/slide_preview
-```
-
-## Artifacts
-
-`content/gaapo_outputs_v2/`
-
-- `candidate_log.csv` — every candidate evaluation from the main run (116 rows, 102 distinct prompts)
-- `run_manifest.json` — versions, models, seeds, split hashes, request counts
-- `ablation/` — per-run table, per-example test predictions, paired tests
-- `adaptive/` — four arms × three repeats, weight trajectories, McNemar and bootstrap tables
-- `probe/` — the nine re-scored candidates, per-example outcomes, summary statistics
-- `figures/` — report and slide figures
-
-Scripts at the repository root: `run_sweep.py` (main run + ablation), `run_adaptive.py`
-(extension), `run_probe.py` (section 4.1 probe, resumable, one prompt per invocation),
-`plot_probe.py`, `plot_slide_chart.py`, `build_slides.py`, `preview_slides.py` (rough PNG preview
-of the deck, for checking layout without PowerPoint).
 
 ## Disclosed gap
 
